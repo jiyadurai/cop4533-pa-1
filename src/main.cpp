@@ -106,6 +106,8 @@ Matching createMatching(const vector<Hospital> &hospitals, const vector<Student>
 bool Verifier(const Matching& pairing, const vector<Hospital>& h, const vector<Student>& s) {
     set<int> students;
     set<int> hospitals;
+    const Hospital* ht;
+    vector<set<int>> sPreferences(s.size(), set<int>());
     for (int i = 0; i < pairing.pairs.size(); i++) {
         // Check for Duplicates
         if (students.count(pairing.pairs[i].second) > 0 || hospitals.count(pairing.pairs[i].first) > 0) {
@@ -114,14 +116,33 @@ bool Verifier(const Matching& pairing, const vector<Hospital>& h, const vector<S
 
         hospitals.insert(pairing.pairs[i].first);
         students.insert(pairing.pairs[i].second);
-
-        // Ensure that it is a stable matching
-        for (int j = 0; j < h[pairing.pairs[i].first-1].preferenceList.size(); j++) {
-            if (h[pairing.pairs[i].first-1].preferenceList[j] == pairing.pairs[i].second) {
+        // Create sets of the hospitals students prefer to their current matching
+        const Student* student = &s[pairing.pairs[i].second-1];
+        for (int j = 0; j < student->preferenceList.size(); j++) {
+            // Exit when current hopsital is reached
+            if (student->preferenceList[j] == pairing.pairs[i].first) {
                 break;
+            }
+            sPreferences[student->id-1].insert(student->preferenceList[j]);
+        }
+    }
+
+    cout << "Stable matching v: " << endl;
+    
+    // Ensure that it is a stable matching
+    for (int i = 0; i < h.size(); i++) {
+        for (int j = 0; j < h[i].preferenceList.size(); j++) {
+            // Exit when student being checked is the student matched with the hospital
+            if (h[i].preferenceList[j] == pairing.pairs[i].second) {
+                break;
+            }
+            // Check if the student the hospital would prefer also prefers this hopsital to their current matching
+            if (sPreferences[h[i].preferenceList[j]].count(i) > 0) {
+                return false;
             }
         }
     }
+
     return true;
 }
 
@@ -140,7 +161,7 @@ struct Timer {
 };
 
 int main() {
-    ifstream f{"../inputs/64.txt"};
+    ifstream f{"../inputs/2.txt"};
     //ofstream o{"../outputs/64.txt"};
     auto &o = cout;
     Timer total{"Whole Program", o};
@@ -161,11 +182,12 @@ int main() {
         m = createMatching(hospitals, students);
     }
 
+    sort(m.pairs.begin(), m.pairs.end());
+
     bool works = Verifier(m, hospitals, students);
 
     cout << m.pairs.size() << endl;
 
-    sort(m.pairs.begin(), m.pairs.end());
     for (auto &[h, s] : m.pairs) {
         o << "Hospital " << h << " is matched with student " << s << "\n";
     }
