@@ -36,7 +36,7 @@ Hospital readHospital(int i, int N, istream& in = cin) {
     for (int j = 1; j <= N; j++) {
         int x;
         in >> x;
-        h.preferences[j] = x;
+        h.preferences[x] = j;
         h.preferenceList.emplace_back(x);
     }
     return h;
@@ -48,7 +48,7 @@ Student readStudent(int i, int N, istream& in = cin) {
     for (int j = 1; j <= N; j++) {
         int x;
         in >> x;
-        s.preferences[j] = x;
+        s.preferences[x] = j;
         s.preferenceList.emplace_back(x);
     }
     return s;
@@ -135,7 +135,7 @@ bool Verifier(const Matching& pairing, const vector<Hospital>& h, const vector<S
                 break;
             }
             // Check if the student the hospital would prefer also prefers this hopsital to their current matching
-            if (sPreferences[h[i].preferenceList[j]-1].count(i) > 0) {
+            if (sPreferences[h[i].preferenceList[j]-1].count(i+1) > 0) {
                 cout << "Not a valid stable matching because hospital " << i + 1 << " wants student " << h[i].preferenceList[j] << " as pick #" << j+1 << endl;
                 return false;
             }
@@ -160,7 +160,7 @@ struct Timer {
 };
 
 int main() {
-    ifstream f{"../inputs/4.txt"};
+    ifstream f{"../inputs/512.txt"};
     //ofstream o{"../outputs/64.txt"};
     auto &o = cout;
     Timer total{"Whole Program", o};
