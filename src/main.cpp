@@ -49,9 +49,53 @@ Student readStudent(int i, int N) {
     return s;
 }
 
-Matching createMatching(std::vector<Hospital> &hospitals, std::vector<Student> &students) {
+Matching createMatching(const std::vector<Hospital> &hospitals, const std::vector<Student> &students) {
     // do the gale shapley algorithm
-    return {};
+    const auto N = hospitals.size();
+    if (N != students.size() || N == 0) {
+        return {};
+    }
+    std::unordered_map<int, int> hospitalById;
+    std::unordered_map<int, int> studentById;
+    // holds position numbers of hospitals which are currently unmatched
+    std::set<int> unmatchedHospitals;
+    for (int i = 0; i < N; i++) {
+        unmatchedHospitals.insert(i);
+        hospitalById[hospitals[i].id] = i;
+        studentById[students[i].id] = i;
+    }
+    // holds the place of what should be the next match checked for each hospital (not by id, by place in list)
+    std::vector<int> matchedUpTo(N, 0);
+    // holds the matches that have already been made as <student id, hospital id> pairs
+    std::unordered_map<int, int> currentAssignments;
+    // when N matches have been made, we are done
+    while (currentAssignments.size() < N) {
+        auto nextUnmatched = *unmatchedHospitals.begin();
+        auto &hospital = hospitals[nextUnmatched];
+        //
+        auto &student = students[studentById[hospital.preferenceList[matchedUpTo[nextUnmatched]]]];
+        matchedUpTo[nextUnmatched]++;
+
+        if (!currentAssignments.contains(student.id)) {
+            // if the desired student does not have a match yet, match them with this hospital
+            unmatchedHospitals.erase(nextUnmatched);
+            currentAssignments[student.id] = hospital.id;
+        } else if (student.preferences.at(currentAssignments[student.id]) > student.preferences.at(hospital.id)) {
+            // if the student likes the new hospital more than its old match
+            unmatchedHospitals.insert(currentAssignments[student.id]);
+            currentAssignments[student.id] = hospital.id;
+            unmatchedHospitals.erase(nextUnmatched);
+        } else {
+            continue;
+        }
+    }
+    Matching result;
+    result.pairs.reserve(N);
+    for (auto &[student, hospital] : currentAssignments) {
+        result.pairs.emplace_back(hospital, student);
+    }
+
+    return result;
 }
 
 int main() {
@@ -66,4 +110,8 @@ int main() {
         students.push_back(readStudent(i, N));
     }
 
+    Matching m = createMatching(hospitals, students);
+    for (auto &[h, s] : m.pairs) {
+        std::cout << "Hospital " << h << " is matched with student " << s << "\n";
+    }
 }
