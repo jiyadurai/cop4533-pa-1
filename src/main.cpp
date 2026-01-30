@@ -123,12 +123,10 @@ int main() {
     std::vector<int> order(12);
     std::iota(order.begin(), order.end(), 0);
     std::shuffle(order.begin(), order.end(), gen);
-    for (auto i : order) {
-        std::cout << i << " ";
-    }
     for (int j = 0; j < 12; j++) {
         std::ifstream f{"../inputs/" + std::to_string(1 << order[j]) + ".txt"};
         std::ofstream o{"../outputs/" + std::to_string(1 << order[j]) + "time.txt"};
+        std::ofstream of{"../outputs/" + std::to_string(1 << order[j]) + ".txt"};
         // auto &o = std::cout;
         Timer total{"Whole Program", o};
         int N;
@@ -145,7 +143,7 @@ int main() {
         m = createMatching(hospitals, students);
         std::sort(m.pairs.begin(), m.pairs.end());
         for (auto &[h, s] : m.pairs) {
-            std::cout << h << " " << s << "\n";
+            of << h << " " << s << "\n";
         }
     }
 }
