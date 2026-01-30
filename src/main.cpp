@@ -2,6 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include <set>
+#include <algorithm>
 
 struct Hospital {
     std::vector<int> preferenceList;
@@ -82,7 +83,7 @@ Matching createMatching(const std::vector<Hospital> &hospitals, const std::vecto
             currentAssignments[student.id] = hospital.id;
         } else if (student.preferences.at(currentAssignments[student.id]) > student.preferences.at(hospital.id)) {
             // if the student likes the new hospital more than its old match
-            unmatchedHospitals.insert(currentAssignments[student.id]);
+            unmatchedHospitals.insert(hospitalById[currentAssignments[student.id]]);
             currentAssignments[student.id] = hospital.id;
             unmatchedHospitals.erase(nextUnmatched);
         } else {
@@ -111,6 +112,7 @@ int main() {
     }
 
     Matching m = createMatching(hospitals, students);
+    std::sort(m.pairs.begin(), m.pairs.end());
     for (auto &[h, s] : m.pairs) {
         std::cout << "Hospital " << h << " is matched with student " << s << "\n";
     }
