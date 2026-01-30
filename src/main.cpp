@@ -126,8 +126,6 @@ bool Verifier(const Matching& pairing, const vector<Hospital>& h, const vector<S
             sPreferences[student->id-1].insert(student->preferenceList[j]);
         }
     }
-
-    cout << "Stable matching v: " << endl;
     
     // Ensure that it is a stable matching
     for (int i = 0; i < h.size(); i++) {
@@ -137,7 +135,8 @@ bool Verifier(const Matching& pairing, const vector<Hospital>& h, const vector<S
                 break;
             }
             // Check if the student the hospital would prefer also prefers this hopsital to their current matching
-            if (sPreferences[h[i].preferenceList[j]].count(i) > 0) {
+            if (sPreferences[h[i].preferenceList[j]-1].count(i) > 0) {
+                cout << "Not a valid stable matching because hospital " << i + 1 << " wants student " << h[i].preferenceList[j] << " as pick #" << j+1 << endl;
                 return false;
             }
         }
@@ -161,7 +160,7 @@ struct Timer {
 };
 
 int main() {
-    ifstream f{"../inputs/2.txt"};
+    ifstream f{"../inputs/4.txt"};
     //ofstream o{"../outputs/64.txt"};
     auto &o = cout;
     Timer total{"Whole Program", o};
@@ -185,8 +184,6 @@ int main() {
     sort(m.pairs.begin(), m.pairs.end());
 
     bool works = Verifier(m, hospitals, students);
-
-    cout << m.pairs.size() << endl;
 
     for (auto &[h, s] : m.pairs) {
         o << "Hospital " << h << " is matched with student " << s << "\n";
