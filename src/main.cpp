@@ -117,7 +117,27 @@ struct Timer {
     }
 };
 
-int main() {
+int main(int argc, char *argv[]) {
+    if (argc >= 2) {
+        if (std::string{argv[1]} == "-m") {
+            int N;
+            std::cin >> N;
+            std::vector<Hospital> hospitals;
+            std::vector<Student> students;
+            for (int i = 1; i <= N; i++) {
+                hospitals.push_back(readHospital(i, N, std::cin));
+            }
+            for (int i = 1; i <= N; i++) {
+                students.push_back(readStudent(i, N, std::cin));
+            }
+            Matching m;
+            m = createMatching(hospitals, students);
+            std::sort(m.pairs.begin(), m.pairs.end());
+            for (auto &[h, s] : m.pairs) {
+                std::cout << h << " " << s << "\n";
+            }
+        }
+    }
     std::random_device rd;
     std::mt19937 gen(rd());
     std::vector<int> order(12);
