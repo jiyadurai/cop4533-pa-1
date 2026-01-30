@@ -49,6 +49,11 @@ Student readStudent(int i, int N) {
     return s;
 }
 
+Matching createMatching(std::vector<Hospital> &hospitals, std::vector<Student> &students) {
+    // do the gale shapley algorithm
+    return {};
+}
+
 int main() {
     int N;
     std::cin >> N;
