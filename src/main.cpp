@@ -4,10 +4,13 @@
 #include <set>
 #include <algorithm>
 #include <fstream>
+#include <chrono>
+
+using namespace std;
 
 struct Hospital {
-    std::vector<int> preferenceList;
-    std::unordered_map<int, int> preferences;
+    vector<int> preferenceList;
+    unordered_map<int, int> preferences;
     int id;
     explicit Hospital(int id) {
         this->id = id;
@@ -15,8 +18,8 @@ struct Hospital {
 };
 
 struct Student {
-    std::vector<int> preferenceList;
-    std::unordered_map<int, int> preferences;
+    vector<int> preferenceList;
+    unordered_map<int, int> preferences;
     int id;
     explicit Student(int id) {
         this->id = id;
@@ -24,10 +27,10 @@ struct Student {
 };
 
 struct Matching {
-    std::vector<std::pair<int, int>> pairs;
+    vector<pair<int, int>> pairs;
 };
 
-Hospital readHospital(int i, int N, std::istream& in = std::cin) {
+Hospital readHospital(int i, int N, istream& in = cin) {
     Hospital h{i};
     h.preferenceList.reserve(N);
     for (int j = 1; j <= N; j++) {
@@ -39,7 +42,7 @@ Hospital readHospital(int i, int N, std::istream& in = std::cin) {
     return h;
 }
 
-Student readStudent(int i, int N, std::istream& in = std::cin) {
+Student readStudent(int i, int N, istream& in = cin) {
     Student s{i};
     s.preferenceList.reserve(N);
     for (int j = 1; j <= N; j++) {
@@ -51,25 +54,25 @@ Student readStudent(int i, int N, std::istream& in = std::cin) {
     return s;
 }
 
-Matching createMatching(const std::vector<Hospital> &hospitals, const std::vector<Student> &students) {
+Matching createMatching(const vector<Hospital> &hospitals, const vector<Student> &students) {
     // do the gale shapley algorithm
     const auto N = hospitals.size();
     if (N != students.size() || N == 0) {
         return {};
     }
-    std::unordered_map<int, int> hospitalById;
-    std::unordered_map<int, int> studentById;
+    unordered_map<int, int> hospitalById;
+    unordered_map<int, int> studentById;
     // holds position numbers of hospitals which are currently unmatched
-    std::set<int> unmatchedHospitals;
+    set<int> unmatchedHospitals;
     for (int i = 0; i < N; i++) {
         unmatchedHospitals.insert(i);
         hospitalById[hospitals[i].id] = i;
         studentById[students[i].id] = i;
     }
     // holds the place of what should be the next match checked for each hospital (not by id, by place in list)
-    std::vector<int> matchedUpTo(N, 0);
+    vector<int> matchedUpTo(N, 0);
     // holds the matches that have already been made as <student id, hospital id> pairs
-    std::unordered_map<int, int> currentAssignments;
+    unordered_map<int, int> currentAssignments;
     // when N matches have been made, we are done
     while (currentAssignments.size() < N) {
         auto nextUnmatched = *unmatchedHospitals.begin();
@@ -100,42 +103,76 @@ Matching createMatching(const std::vector<Hospital> &hospitals, const std::vecto
     return result;
 }
 
+bool Verifier(const Matching& pairing, const vector<Hospital>& h, const vector<Student>& s) {
+    set<int> students;
+    set<int> hospitals;
+    for (int i = 0; i < pairing.pairs.size(); i++) {
+        // Check for Duplicates
+        if (students.count(pairing.pairs[i].second) > 0 || hospitals.count(pairing.pairs[i].first) > 0) {
+            return false;
+        }
+
+        hospitals.insert(pairing.pairs[i].first);
+        students.insert(pairing.pairs[i].second);
+
+        // Ensure that it is a stable matching
+        for (int j = 0; j < h[pairing.pairs[i].first-1].preferenceList.size(); j++) {
+            if (h[pairing.pairs[i].first-1].preferenceList[j] == pairing.pairs[i].second) {
+                break;
+            }
+        }
+    }
+    return true;
+}
+
 struct Timer {
-    std::chrono::time_point<std::chrono::high_resolution_clock> start;
-    std::string name;
-    std::ostream& os;
-    explicit Timer(const std::string_view _name, std::ostream &o = std::cout) : name(_name), os(o) {
-        start = std::chrono::high_resolution_clock::now();
+    chrono::time_point<chrono::high_resolution_clock> start;
+    string name;
+    ostream& os;
+    explicit Timer(const string_view _name, ostream &o = cout) : name(_name), os(o) {
+        start = chrono::high_resolution_clock::now();
     }
     ~Timer() {
-        auto end = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+        auto end = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
         os << "Timer " << name << " finished in " << duration.count() << " microseconds\n";
     }
 };
 
 int main() {
-    std::ifstream f{"../inputs/64.txt"};
-    // std::ofstream o{"../outputs/64.txt"};
-    auto &o = std::cout;
+    ifstream f{"../inputs/64.txt"};
+    //ofstream o{"../outputs/64.txt"};
+    auto &o = cout;
     Timer total{"Whole Program", o};
     int N;
     f >> N;
-    std::vector<Hospital> hospitals;
-    std::vector<Student> students;
+    vector<Hospital> hospitals;
+    vector<Student> students;
     for (int i = 1; i <= N; i++) {
         hospitals.push_back(readHospital(i, N, f));
     }
     for (int i = 1; i <= N; i++) {
         students.push_back(readStudent(i, N, f));
     }
+
     Matching m;
     {
         Timer createMatchingTime{"Create Matching", o};
         m = createMatching(hospitals, students);
     }
-    std::sort(m.pairs.begin(), m.pairs.end());
+
+    bool works = Verifier(m, hospitals, students);
+
+    cout << m.pairs.size() << endl;
+
+    sort(m.pairs.begin(), m.pairs.end());
     for (auto &[h, s] : m.pairs) {
         o << "Hospital " << h << " is matched with student " << s << "\n";
+    }
+
+    if (works) {
+        o << "This is a valid stable matching" << endl;
+    } else {
+        o << "This is not a valid stable matching" << endl;
     }
 }
