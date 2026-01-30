@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include <set>
 #include <algorithm>
+#include <fstream>
 
 struct Hospital {
     std::vector<int> preferenceList;
@@ -26,24 +27,24 @@ struct Matching {
     std::vector<std::pair<int, int>> pairs;
 };
 
-Hospital readHospital(int i, int N) {
+Hospital readHospital(int i, int N, std::istream& in = std::cin) {
     Hospital h{i};
     h.preferenceList.reserve(N);
     for (int j = 1; j <= N; j++) {
         int x;
-        std::cin >> x;
+        in >> x;
         h.preferences[j] = x;
         h.preferenceList.emplace_back(x);
     }
     return h;
 }
 
-Student readStudent(int i, int N) {
+Student readStudent(int i, int N, std::istream& in = std::cin) {
     Student s{i};
     s.preferenceList.reserve(N);
     for (int j = 1; j <= N; j++) {
         int x;
-        std::cin >> x;
+        in >> x;
         s.preferences[j] = x;
         s.preferenceList.emplace_back(x);
     }
@@ -99,21 +100,42 @@ Matching createMatching(const std::vector<Hospital> &hospitals, const std::vecto
     return result;
 }
 
+struct Timer {
+    std::chrono::time_point<std::chrono::high_resolution_clock> start;
+    std::string name;
+    std::ostream& os;
+    explicit Timer(const std::string_view _name, std::ostream &o = std::cout) : name(_name), os(o) {
+        start = std::chrono::high_resolution_clock::now();
+    }
+    ~Timer() {
+        auto end = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+        os << "Timer " << name << " finished in " << duration.count() << " microseconds\n";
+    }
+};
+
 int main() {
+    std::ifstream f{"../inputs/64.txt"};
+    // std::ofstream o{"../outputs/64.txt"};
+    auto &o = std::cout;
+    Timer total{"Whole Program", o};
     int N;
-    std::cin >> N;
+    f >> N;
     std::vector<Hospital> hospitals;
     std::vector<Student> students;
     for (int i = 1; i <= N; i++) {
-        hospitals.push_back(readHospital(i, N));
+        hospitals.push_back(readHospital(i, N, f));
     }
     for (int i = 1; i <= N; i++) {
-        students.push_back(readStudent(i, N));
+        students.push_back(readStudent(i, N, f));
     }
-
-    Matching m = createMatching(hospitals, students);
+    Matching m;
+    {
+        Timer createMatchingTime{"Create Matching", o};
+        m = createMatching(hospitals, students);
+    }
     std::sort(m.pairs.begin(), m.pairs.end());
     for (auto &[h, s] : m.pairs) {
-        std::cout << "Hospital " << h << " is matched with student " << s << "\n";
+        o << "Hospital " << h << " is matched with student " << s << "\n";
     }
 }
