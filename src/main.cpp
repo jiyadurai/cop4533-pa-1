@@ -56,6 +56,12 @@ Student readStudent(int i, int N, istream& in = cin) {
     return s;
 }
 
+std::pair<int, int> readMatch(istream &in = cin) {
+    int x, y;
+    in >> x >> y;
+    return std::make_pair(x, y);
+}
+
 Matching createMatching(const vector<Hospital> &hospitals, const vector<Student> &students) {
     // do the gale shapley algorithm
     const auto N = hospitals.size();
@@ -182,7 +188,28 @@ int main(int argc, char *argv[]) {
             for (auto &[h, s] : m.pairs) {
                 std::cout << h << " " << s << "\n";
             }
+        } else if (std::string{argv[1]} == "-v") {
+            if (std::string{argv[2]} == "-m") {
+                int N;
+                std::cin >> N;
+                std::vector<Hospital> hospitals;
+                std::vector<Student> students;
+                for (int i = 1; i <= N; i++) {
+                    hospitals.push_back(readHospital(i, N, std::cin));
+                }
+                for (int i = 1; i <= N; i++) {
+                    students.push_back(readStudent(i, N, std::cin));
+                }
+                Matching m;
+                for (int i = 1; i <= N; i++) {
+                    m.pairs.push_back(readMatch(std::cin));
+                }
+                if (Verifier(m, hospitals, students)) {
+                    std::cout << "VALID STABLE\n";
+                }
+            }
         }
+        return 0;
     }
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -206,18 +233,17 @@ int main(int argc, char *argv[]) {
             students.push_back(readStudent(i, N, f));
         }
         Matching m;
-        m = createMatching(hospitals, students);
+        {
+            Timer matching{"matching", o};
+            m = createMatching(hospitals, students);
+        }
         std::sort(m.pairs.begin(), m.pairs.end());
         for (auto &[h, s] : m.pairs) {
             of << h << " " << s << "\n";
         }
-    }
-  
-    bool works = Verifier(m, hospitals, students);
-
-    if (works) {
-        o << "This is a valid stable matching" << endl;
-    } else {
-        o << "This is not a valid stable matching" << endl;
+        Timer verification{"Verify", o};
+        if (Verifier(m, hospitals, students)) {
+            std::cout << "VALID STABLE\n";
+        }
     }
 }

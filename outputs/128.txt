@@ -1,130 +1,128 @@
-Timer Create Matching finished in 284 microseconds
-Hospital 1 is matched with student 125
-Hospital 2 is matched with student 89
-Hospital 3 is matched with student 34
-Hospital 4 is matched with student 101
-Hospital 5 is matched with student 118
-Hospital 6 is matched with student 87
-Hospital 7 is matched with student 52
-Hospital 8 is matched with student 102
-Hospital 9 is matched with student 12
-Hospital 10 is matched with student 44
-Hospital 11 is matched with student 15
-Hospital 12 is matched with student 57
-Hospital 13 is matched with student 43
-Hospital 14 is matched with student 25
-Hospital 15 is matched with student 42
-Hospital 16 is matched with student 9
-Hospital 17 is matched with student 117
-Hospital 18 is matched with student 80
-Hospital 19 is matched with student 22
-Hospital 20 is matched with student 84
-Hospital 21 is matched with student 29
-Hospital 22 is matched with student 11
-Hospital 23 is matched with student 123
-Hospital 24 is matched with student 128
-Hospital 25 is matched with student 30
-Hospital 26 is matched with student 17
-Hospital 27 is matched with student 13
-Hospital 28 is matched with student 67
-Hospital 29 is matched with student 6
-Hospital 30 is matched with student 70
-Hospital 31 is matched with student 23
-Hospital 32 is matched with student 71
-Hospital 33 is matched with student 113
-Hospital 34 is matched with student 26
-Hospital 35 is matched with student 95
-Hospital 36 is matched with student 120
-Hospital 37 is matched with student 53
-Hospital 38 is matched with student 2
-Hospital 39 is matched with student 56
-Hospital 40 is matched with student 59
-Hospital 41 is matched with student 112
-Hospital 42 is matched with student 98
-Hospital 43 is matched with student 51
-Hospital 44 is matched with student 48
-Hospital 45 is matched with student 115
-Hospital 46 is matched with student 1
-Hospital 47 is matched with student 86
-Hospital 48 is matched with student 39
-Hospital 49 is matched with student 4
-Hospital 50 is matched with student 20
-Hospital 51 is matched with student 109
-Hospital 52 is matched with student 110
-Hospital 53 is matched with student 60
-Hospital 54 is matched with student 105
-Hospital 55 is matched with student 36
-Hospital 56 is matched with student 116
-Hospital 57 is matched with student 121
-Hospital 58 is matched with student 107
-Hospital 59 is matched with student 38
-Hospital 60 is matched with student 90
-Hospital 61 is matched with student 31
-Hospital 62 is matched with student 45
-Hospital 63 is matched with student 40
-Hospital 64 is matched with student 114
-Hospital 65 is matched with student 7
-Hospital 66 is matched with student 100
-Hospital 67 is matched with student 28
-Hospital 68 is matched with student 49
-Hospital 69 is matched with student 66
-Hospital 70 is matched with student 41
-Hospital 71 is matched with student 10
-Hospital 72 is matched with student 74
-Hospital 73 is matched with student 63
-Hospital 74 is matched with student 83
-Hospital 75 is matched with student 61
-Hospital 76 is matched with student 64
-Hospital 77 is matched with student 91
-Hospital 78 is matched with student 103
-Hospital 79 is matched with student 85
-Hospital 80 is matched with student 77
-Hospital 81 is matched with student 3
-Hospital 82 is matched with student 97
-Hospital 83 is matched with student 78
-Hospital 84 is matched with student 79
-Hospital 85 is matched with student 119
-Hospital 86 is matched with student 96
-Hospital 87 is matched with student 99
-Hospital 88 is matched with student 55
-Hospital 89 is matched with student 24
-Hospital 90 is matched with student 19
-Hospital 91 is matched with student 111
-Hospital 92 is matched with student 27
-Hospital 93 is matched with student 108
-Hospital 94 is matched with student 69
-Hospital 95 is matched with student 37
-Hospital 96 is matched with student 16
-Hospital 97 is matched with student 50
-Hospital 98 is matched with student 93
-Hospital 99 is matched with student 72
-Hospital 100 is matched with student 126
-Hospital 101 is matched with student 127
-Hospital 102 is matched with student 35
-Hospital 103 is matched with student 82
-Hospital 104 is matched with student 122
-Hospital 105 is matched with student 73
-Hospital 106 is matched with student 14
-Hospital 107 is matched with student 5
-Hospital 108 is matched with student 68
-Hospital 109 is matched with student 124
-Hospital 110 is matched with student 106
-Hospital 111 is matched with student 8
-Hospital 112 is matched with student 81
-Hospital 113 is matched with student 65
-Hospital 114 is matched with student 94
-Hospital 115 is matched with student 75
-Hospital 116 is matched with student 54
-Hospital 117 is matched with student 33
-Hospital 118 is matched with student 92
-Hospital 119 is matched with student 76
-Hospital 120 is matched with student 21
-Hospital 121 is matched with student 58
-Hospital 122 is matched with student 32
-Hospital 123 is matched with student 104
-Hospital 124 is matched with student 47
-Hospital 125 is matched with student 88
-Hospital 126 is matched with student 18
-Hospital 127 is matched with student 46
-Hospital 128 is matched with student 62
-Timer Whole Program finished in 8341 microseconds
+1 20
+2 68
+3 118
+4 58
+5 35
+6 85
+7 115
+8 34
+9 106
+10 93
+11 23
+12 64
+13 75
+14 54
+15 57
+16 95
+17 116
+18 4
+19 72
+20 100
+21 52
+22 80
+23 30
+24 123
+25 94
+26 77
+27 113
+28 81
+29 15
+30 120
+31 53
+32 70
+33 31
+34 21
+35 17
+36 79
+37 124
+38 36
+39 119
+40 96
+41 56
+42 76
+43 101
+44 6
+45 50
+46 40
+47 1
+48 33
+49 24
+50 29
+51 126
+52 87
+53 22
+54 42
+55 78
+56 89
+57 108
+58 83
+59 39
+60 98
+61 47
+62 84
+63 109
+64 121
+65 122
+66 48
+67 10
+68 44
+69 112
+70 91
+71 110
+72 90
+73 128
+74 107
+75 114
+76 69
+77 55
+78 26
+79 97
+80 28
+81 7
+82 49
+83 16
+84 19
+85 9
+86 103
+87 27
+88 41
+89 105
+90 63
+91 38
+92 86
+93 66
+94 14
+95 111
+96 13
+97 60
+98 32
+99 117
+100 65
+101 11
+102 125
+103 71
+104 12
+105 92
+106 73
+107 3
+108 67
+109 62
+110 104
+111 88
+112 18
+113 5
+114 25
+115 43
+116 59
+117 8
+118 99
+119 51
+120 46
+121 37
+122 61
+123 127
+124 102
+125 45
+126 82
+127 2
+128 74

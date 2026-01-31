@@ -1,34 +1,32 @@
-Timer Create Matching finished in 55 microseconds
-Hospital 1 is matched with student 1
-Hospital 2 is matched with student 26
-Hospital 3 is matched with student 14
-Hospital 4 is matched with student 3
-Hospital 5 is matched with student 21
-Hospital 6 is matched with student 25
-Hospital 7 is matched with student 32
-Hospital 8 is matched with student 19
-Hospital 9 is matched with student 10
-Hospital 10 is matched with student 22
-Hospital 11 is matched with student 12
-Hospital 12 is matched with student 24
-Hospital 13 is matched with student 23
-Hospital 14 is matched with student 27
-Hospital 15 is matched with student 29
-Hospital 16 is matched with student 30
-Hospital 17 is matched with student 4
-Hospital 18 is matched with student 18
-Hospital 19 is matched with student 5
-Hospital 20 is matched with student 2
-Hospital 21 is matched with student 16
-Hospital 22 is matched with student 20
-Hospital 23 is matched with student 11
-Hospital 24 is matched with student 7
-Hospital 25 is matched with student 13
-Hospital 26 is matched with student 8
-Hospital 27 is matched with student 9
-Hospital 28 is matched with student 15
-Hospital 29 is matched with student 17
-Hospital 30 is matched with student 31
-Hospital 31 is matched with student 28
-Hospital 32 is matched with student 6
-Timer Whole Program finished in 805 microseconds
+1 26
+2 2
+3 20
+4 5
+5 9
+6 32
+7 25
+8 18
+9 8
+10 4
+11 3
+12 17
+13 28
+14 6
+15 15
+16 23
+17 31
+18 24
+19 11
+20 19
+21 13
+22 12
+23 27
+24 21
+25 14
+26 1
+27 10
+28 29
+29 30
+30 22
+31 16
+32 7

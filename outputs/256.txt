@@ -1,258 +1,256 @@
-Timer Create Matching finished in 808 microseconds
-Hospital 1 is matched with student 173
-Hospital 2 is matched with student 7
-Hospital 3 is matched with student 66
-Hospital 4 is matched with student 213
-Hospital 5 is matched with student 59
-Hospital 6 is matched with student 104
-Hospital 7 is matched with student 98
-Hospital 8 is matched with student 106
-Hospital 9 is matched with student 67
-Hospital 10 is matched with student 191
-Hospital 11 is matched with student 239
-Hospital 12 is matched with student 82
-Hospital 13 is matched with student 103
-Hospital 14 is matched with student 28
-Hospital 15 is matched with student 214
-Hospital 16 is matched with student 165
-Hospital 17 is matched with student 5
-Hospital 18 is matched with student 182
-Hospital 19 is matched with student 95
-Hospital 20 is matched with student 42
-Hospital 21 is matched with student 26
-Hospital 22 is matched with student 250
-Hospital 23 is matched with student 189
-Hospital 24 is matched with student 62
-Hospital 25 is matched with student 108
-Hospital 26 is matched with student 201
-Hospital 27 is matched with student 110
-Hospital 28 is matched with student 199
-Hospital 29 is matched with student 78
-Hospital 30 is matched with student 96
-Hospital 31 is matched with student 200
-Hospital 32 is matched with student 162
-Hospital 33 is matched with student 230
-Hospital 34 is matched with student 77
-Hospital 35 is matched with student 50
-Hospital 36 is matched with student 231
-Hospital 37 is matched with student 143
-Hospital 38 is matched with student 22
-Hospital 39 is matched with student 24
-Hospital 40 is matched with student 88
-Hospital 41 is matched with student 155
-Hospital 42 is matched with student 225
-Hospital 43 is matched with student 34
-Hospital 44 is matched with student 71
-Hospital 45 is matched with student 75
-Hospital 46 is matched with student 57
-Hospital 47 is matched with student 240
-Hospital 48 is matched with student 47
-Hospital 49 is matched with student 132
-Hospital 50 is matched with student 235
-Hospital 51 is matched with student 198
-Hospital 52 is matched with student 30
-Hospital 53 is matched with student 226
-Hospital 54 is matched with student 113
-Hospital 55 is matched with student 120
-Hospital 56 is matched with student 70
-Hospital 57 is matched with student 83
-Hospital 58 is matched with student 18
-Hospital 59 is matched with student 167
-Hospital 60 is matched with student 187
-Hospital 61 is matched with student 157
-Hospital 62 is matched with student 245
-Hospital 63 is matched with student 141
-Hospital 64 is matched with student 99
-Hospital 65 is matched with student 14
-Hospital 66 is matched with student 254
-Hospital 67 is matched with student 72
-Hospital 68 is matched with student 208
-Hospital 69 is matched with student 255
-Hospital 70 is matched with student 209
-Hospital 71 is matched with student 168
-Hospital 72 is matched with student 135
-Hospital 73 is matched with student 176
-Hospital 74 is matched with student 122
-Hospital 75 is matched with student 3
-Hospital 76 is matched with student 185
-Hospital 77 is matched with student 217
-Hospital 78 is matched with student 53
-Hospital 79 is matched with student 105
-Hospital 80 is matched with student 16
-Hospital 81 is matched with student 12
-Hospital 82 is matched with student 242
-Hospital 83 is matched with student 181
-Hospital 84 is matched with student 227
-Hospital 85 is matched with student 131
-Hospital 86 is matched with student 94
-Hospital 87 is matched with student 87
-Hospital 88 is matched with student 128
-Hospital 89 is matched with student 6
-Hospital 90 is matched with student 36
-Hospital 91 is matched with student 43
-Hospital 92 is matched with student 216
-Hospital 93 is matched with student 192
-Hospital 94 is matched with student 206
-Hospital 95 is matched with student 33
-Hospital 96 is matched with student 133
-Hospital 97 is matched with student 74
-Hospital 98 is matched with student 238
-Hospital 99 is matched with student 136
-Hospital 100 is matched with student 40
-Hospital 101 is matched with student 197
-Hospital 102 is matched with student 222
-Hospital 103 is matched with student 223
-Hospital 104 is matched with student 180
-Hospital 105 is matched with student 203
-Hospital 106 is matched with student 166
-Hospital 107 is matched with student 212
-Hospital 108 is matched with student 186
-Hospital 109 is matched with student 179
-Hospital 110 is matched with student 146
-Hospital 111 is matched with student 251
-Hospital 112 is matched with student 115
-Hospital 113 is matched with student 194
-Hospital 114 is matched with student 252
-Hospital 115 is matched with student 190
-Hospital 116 is matched with student 249
-Hospital 117 is matched with student 229
-Hospital 118 is matched with student 164
-Hospital 119 is matched with student 58
-Hospital 120 is matched with student 20
-Hospital 121 is matched with student 193
-Hospital 122 is matched with student 123
-Hospital 123 is matched with student 220
-Hospital 124 is matched with student 29
-Hospital 125 is matched with student 125
-Hospital 126 is matched with student 156
-Hospital 127 is matched with student 118
-Hospital 128 is matched with student 37
-Hospital 129 is matched with student 174
-Hospital 130 is matched with student 188
-Hospital 131 is matched with student 248
-Hospital 132 is matched with student 48
-Hospital 133 is matched with student 69
-Hospital 134 is matched with student 234
-Hospital 135 is matched with student 21
-Hospital 136 is matched with student 91
-Hospital 137 is matched with student 85
-Hospital 138 is matched with student 175
-Hospital 139 is matched with student 138
-Hospital 140 is matched with student 114
-Hospital 141 is matched with student 177
-Hospital 142 is matched with student 147
-Hospital 143 is matched with student 92
-Hospital 144 is matched with student 211
-Hospital 145 is matched with student 150
-Hospital 146 is matched with student 79
-Hospital 147 is matched with student 31
-Hospital 148 is matched with student 137
-Hospital 149 is matched with student 148
-Hospital 150 is matched with student 224
-Hospital 151 is matched with student 19
-Hospital 152 is matched with student 89
-Hospital 153 is matched with student 129
-Hospital 154 is matched with student 38
-Hospital 155 is matched with student 127
-Hospital 156 is matched with student 243
-Hospital 157 is matched with student 80
-Hospital 158 is matched with student 9
-Hospital 159 is matched with student 65
-Hospital 160 is matched with student 183
-Hospital 161 is matched with student 27
-Hospital 162 is matched with student 41
-Hospital 163 is matched with student 160
-Hospital 164 is matched with student 256
-Hospital 165 is matched with student 84
-Hospital 166 is matched with student 49
-Hospital 167 is matched with student 130
-Hospital 168 is matched with student 25
-Hospital 169 is matched with student 45
-Hospital 170 is matched with student 142
-Hospital 171 is matched with student 13
-Hospital 172 is matched with student 101
-Hospital 173 is matched with student 236
-Hospital 174 is matched with student 172
-Hospital 175 is matched with student 161
-Hospital 176 is matched with student 17
-Hospital 177 is matched with student 140
-Hospital 178 is matched with student 119
-Hospital 179 is matched with student 86
-Hospital 180 is matched with student 184
-Hospital 181 is matched with student 134
-Hospital 182 is matched with student 60
-Hospital 183 is matched with student 196
-Hospital 184 is matched with student 63
-Hospital 185 is matched with student 237
-Hospital 186 is matched with student 109
-Hospital 187 is matched with student 121
-Hospital 188 is matched with student 204
-Hospital 189 is matched with student 178
-Hospital 190 is matched with student 171
-Hospital 191 is matched with student 54
-Hospital 192 is matched with student 51
-Hospital 193 is matched with student 144
-Hospital 194 is matched with student 64
-Hospital 195 is matched with student 163
-Hospital 196 is matched with student 61
-Hospital 197 is matched with student 10
-Hospital 198 is matched with student 233
-Hospital 199 is matched with student 11
-Hospital 200 is matched with student 4
-Hospital 201 is matched with student 246
-Hospital 202 is matched with student 15
-Hospital 203 is matched with student 46
-Hospital 204 is matched with student 97
-Hospital 205 is matched with student 219
-Hospital 206 is matched with student 76
-Hospital 207 is matched with student 158
-Hospital 208 is matched with student 205
-Hospital 209 is matched with student 159
-Hospital 210 is matched with student 39
-Hospital 211 is matched with student 124
-Hospital 212 is matched with student 90
-Hospital 213 is matched with student 170
-Hospital 214 is matched with student 151
-Hospital 215 is matched with student 107
-Hospital 216 is matched with student 232
-Hospital 217 is matched with student 112
-Hospital 218 is matched with student 116
-Hospital 219 is matched with student 100
-Hospital 220 is matched with student 1
-Hospital 221 is matched with student 169
-Hospital 222 is matched with student 207
-Hospital 223 is matched with student 126
-Hospital 224 is matched with student 32
-Hospital 225 is matched with student 145
-Hospital 226 is matched with student 195
-Hospital 227 is matched with student 202
-Hospital 228 is matched with student 215
-Hospital 229 is matched with student 8
-Hospital 230 is matched with student 253
-Hospital 231 is matched with student 244
-Hospital 232 is matched with student 152
-Hospital 233 is matched with student 44
-Hospital 234 is matched with student 153
-Hospital 235 is matched with student 55
-Hospital 236 is matched with student 117
-Hospital 237 is matched with student 139
-Hospital 238 is matched with student 52
-Hospital 239 is matched with student 73
-Hospital 240 is matched with student 35
-Hospital 241 is matched with student 241
-Hospital 242 is matched with student 228
-Hospital 243 is matched with student 111
-Hospital 244 is matched with student 56
-Hospital 245 is matched with student 93
-Hospital 246 is matched with student 154
-Hospital 247 is matched with student 102
-Hospital 248 is matched with student 221
-Hospital 249 is matched with student 68
-Hospital 250 is matched with student 149
-Hospital 251 is matched with student 81
-Hospital 252 is matched with student 247
-Hospital 253 is matched with student 23
-Hospital 254 is matched with student 218
-Hospital 255 is matched with student 210
-Hospital 256 is matched with student 2
-Timer Whole Program finished in 33444 microseconds
+1 8
+2 215
+3 108
+4 161
+5 81
+6 183
+7 172
+8 49
+9 124
+10 235
+11 115
+12 128
+13 110
+14 99
+15 6
+16 74
+17 171
+18 95
+19 241
+20 113
+21 195
+22 178
+23 238
+24 94
+25 227
+26 185
+27 48
+28 254
+29 197
+30 244
+31 140
+32 84
+33 162
+34 138
+35 23
+36 30
+37 198
+38 204
+39 36
+40 33
+41 144
+42 169
+43 142
+44 97
+45 118
+46 129
+47 175
+48 64
+49 207
+50 100
+51 155
+52 132
+53 216
+54 242
+55 186
+56 248
+57 206
+58 103
+59 15
+60 174
+61 214
+62 179
+63 31
+64 109
+65 34
+66 71
+67 35
+68 256
+69 83
+70 66
+71 12
+72 104
+73 199
+74 90
+75 98
+76 253
+77 86
+78 16
+79 88
+80 91
+81 10
+82 196
+83 130
+84 2
+85 208
+86 192
+87 134
+88 250
+89 89
+90 163
+91 85
+92 105
+93 4
+94 63
+95 137
+96 42
+97 189
+98 5
+99 157
+100 159
+101 131
+102 82
+103 67
+104 46
+105 229
+106 239
+107 211
+108 27
+109 47
+110 147
+111 202
+112 37
+113 251
+114 200
+115 217
+116 50
+117 150
+118 51
+119 181
+120 76
+121 146
+122 210
+123 168
+124 219
+125 184
+126 191
+127 72
+128 59
+129 177
+130 203
+131 170
+132 107
+133 246
+134 173
+135 233
+136 32
+137 209
+138 57
+139 190
+140 25
+141 43
+142 182
+143 121
+144 116
+145 164
+146 55
+147 126
+148 78
+149 133
+150 106
+151 151
+152 153
+153 228
+154 40
+155 247
+156 230
+157 39
+158 141
+159 188
+160 255
+161 152
+162 114
+163 232
+164 45
+165 18
+166 96
+167 20
+168 223
+169 69
+170 79
+171 41
+172 234
+173 111
+174 28
+175 218
+176 80
+177 9
+178 139
+179 26
+180 225
+181 221
+182 167
+183 70
+184 112
+185 7
+186 60
+187 29
+188 160
+189 56
+190 54
+191 226
+192 19
+193 44
+194 24
+195 102
+196 101
+197 249
+198 176
+199 87
+200 58
+201 123
+202 187
+203 52
+204 13
+205 145
+206 243
+207 120
+208 61
+209 119
+210 75
+211 92
+212 224
+213 117
+214 245
+215 222
+216 65
+217 21
+218 166
+219 1
+220 194
+221 127
+222 156
+223 201
+224 68
+225 38
+226 77
+227 22
+228 205
+229 213
+230 237
+231 193
+232 122
+233 135
+234 231
+235 212
+236 136
+237 93
+238 154
+239 73
+240 143
+241 14
+242 236
+243 158
+244 180
+245 252
+246 149
+247 240
+248 165
+249 17
+250 62
+251 148
+252 125
+253 220
+254 3
+255 11
+256 53

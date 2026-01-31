@@ -1,66 +1,64 @@
-Timer Create Matching finished in 138 microseconds
-Hospital 1 is matched with student 52
-Hospital 2 is matched with student 55
-Hospital 3 is matched with student 51
-Hospital 4 is matched with student 9
-Hospital 5 is matched with student 6
-Hospital 6 is matched with student 12
-Hospital 7 is matched with student 31
-Hospital 8 is matched with student 30
-Hospital 9 is matched with student 42
-Hospital 10 is matched with student 37
-Hospital 11 is matched with student 19
-Hospital 12 is matched with student 48
-Hospital 13 is matched with student 54
-Hospital 14 is matched with student 7
-Hospital 15 is matched with student 2
-Hospital 16 is matched with student 64
-Hospital 17 is matched with student 13
-Hospital 18 is matched with student 59
-Hospital 19 is matched with student 61
-Hospital 20 is matched with student 41
-Hospital 21 is matched with student 21
-Hospital 22 is matched with student 24
-Hospital 23 is matched with student 60
-Hospital 24 is matched with student 4
-Hospital 25 is matched with student 27
-Hospital 26 is matched with student 16
-Hospital 27 is matched with student 50
-Hospital 28 is matched with student 28
-Hospital 29 is matched with student 22
-Hospital 30 is matched with student 18
-Hospital 31 is matched with student 44
-Hospital 32 is matched with student 1
-Hospital 33 is matched with student 63
-Hospital 34 is matched with student 11
-Hospital 35 is matched with student 26
-Hospital 36 is matched with student 49
-Hospital 37 is matched with student 34
-Hospital 38 is matched with student 14
-Hospital 39 is matched with student 45
-Hospital 40 is matched with student 56
-Hospital 41 is matched with student 57
-Hospital 42 is matched with student 36
-Hospital 43 is matched with student 20
-Hospital 44 is matched with student 58
-Hospital 45 is matched with student 47
-Hospital 46 is matched with student 35
-Hospital 47 is matched with student 25
-Hospital 48 is matched with student 3
-Hospital 49 is matched with student 32
-Hospital 50 is matched with student 15
-Hospital 51 is matched with student 10
-Hospital 52 is matched with student 38
-Hospital 53 is matched with student 53
-Hospital 54 is matched with student 29
-Hospital 55 is matched with student 39
-Hospital 56 is matched with student 40
-Hospital 57 is matched with student 46
-Hospital 58 is matched with student 62
-Hospital 59 is matched with student 8
-Hospital 60 is matched with student 17
-Hospital 61 is matched with student 33
-Hospital 62 is matched with student 5
-Hospital 63 is matched with student 43
-Hospital 64 is matched with student 23
-Timer Whole Program finished in 2467 microseconds
+1 10
+2 39
+3 25
+4 61
+5 47
+6 20
+7 8
+8 44
+9 11
+10 45
+11 50
+12 36
+13 23
+14 62
+15 7
+16 43
+17 15
+18 48
+19 1
+20 13
+21 54
+22 21
+23 38
+24 22
+25 34
+26 60
+27 58
+28 33
+29 9
+30 52
+31 30
+32 37
+33 27
+34 64
+35 57
+36 59
+37 14
+38 56
+39 42
+40 12
+41 41
+42 6
+43 31
+44 35
+45 4
+46 17
+47 49
+48 28
+49 5
+50 3
+51 16
+52 53
+53 19
+54 2
+55 51
+56 24
+57 40
+58 32
+59 29
+60 18
+61 63
+62 26
+63 55
+64 46

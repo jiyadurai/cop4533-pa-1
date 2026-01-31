@@ -1,6 +1,6 @@
 # Programming Assignment 1: Matching and Verifying
 
-Students: Jeevan Iyadurai (31691151), Luke Gorman ()
+Students: Jeevan Iyadurai (31691151), Luke Gorman (43500015)
 
 To compile / build, you ideally should have CMake. Then use these commands to build:
 
@@ -17,9 +17,12 @@ If bad input is given, there are no guarantees about the program's execution.
 
 ![Log-Log Graph for Task C](outputs/chartresultsloglog.png)
 ![Quadratic Fit Graph for Task C](outputs/chartresultsfit.png)
-
+![Verification Results](outputs/chartresultsverification.png)
+![Matching Results](outputs/chartresultsmatching.png)
 Here are the charts of the results for matching. Note that the first chart plots on a logarithmic x and y scale. 
 During this run, the lowest total execution time was for N=8. 
 When the input size is small, the time taken for the I/O is highly variant and makes up most of the execution time.
 However, once the input size becomes larger, it is clear from the quadratic fit lines that the algorithm's running time
-is approximately quadratic.
+is approximately quadratic. This pattern can be observed in the total time for the algorithm, the verification of a
+matching, and the matching itself. The timing was done with a very basic RAII-esque Timer that exists during the
+lifetime it tries to measure, and the charts were produces with matplotlib.
