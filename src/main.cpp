@@ -7,6 +7,8 @@
 #include <chrono>
 
 using namespace std;
+#include <numeric>
+#include <random>
 
 struct Hospital {
     vector<int> preferenceList;
@@ -154,41 +156,64 @@ struct Timer {
         start = chrono::high_resolution_clock::now();
     }
     ~Timer() {
-        auto end = chrono::high_resolution_clock::now();
-        auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-        os << "Timer " << name << " finished in " << duration.count() << " microseconds\n";
+        auto end = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+        // os << "Timer " << name << " finished in " << duration.count() << " nanoseconds\n";
+        os << duration.count() << "\n";
     }
 };
 
-int main() {
-    ifstream f{"../inputs/512.txt"};
-    //ofstream o{"../outputs/64.txt"};
-    auto &o = cout;
-    Timer total{"Whole Program", o};
-    int N;
-    f >> N;
-    vector<Hospital> hospitals;
-    vector<Student> students;
-    for (int i = 1; i <= N; i++) {
-        hospitals.push_back(readHospital(i, N, f));
+int main(int argc, char *argv[]) {
+    if (argc >= 2) {
+        if (std::string{argv[1]} == "-m") {
+            int N;
+            std::cin >> N;
+            std::vector<Hospital> hospitals;
+            std::vector<Student> students;
+            for (int i = 1; i <= N; i++) {
+                hospitals.push_back(readHospital(i, N, std::cin));
+            }
+            for (int i = 1; i <= N; i++) {
+                students.push_back(readStudent(i, N, std::cin));
+            }
+            Matching m;
+            m = createMatching(hospitals, students);
+            std::sort(m.pairs.begin(), m.pairs.end());
+            for (auto &[h, s] : m.pairs) {
+                std::cout << h << " " << s << "\n";
+            }
+        }
     }
-    for (int i = 1; i <= N; i++) {
-        students.push_back(readStudent(i, N, f));
-    }
-
-    Matching m;
-    {
-        Timer createMatchingTime{"Create Matching", o};
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::vector<int> order(12);
+    std::iota(order.begin(), order.end(), 0);
+    std::shuffle(order.begin(), order.end(), gen);
+    for (int j = 0; j < 12; j++) {
+        std::ifstream f{"../inputs/" + std::to_string(1 << order[j]) + ".txt"};
+        std::ofstream o{"../outputs/" + std::to_string(1 << order[j]) + "time.txt"};
+        std::ofstream of{"../outputs/" + std::to_string(1 << order[j]) + ".txt"};
+        // auto &o = std::cout;
+        Timer total{"Whole Program", o};
+        int N;
+        f >> N;
+        std::vector<Hospital> hospitals;
+        std::vector<Student> students;
+        for (int i = 1; i <= N; i++) {
+            hospitals.push_back(readHospital(i, N, f));
+        }
+        for (int i = 1; i <= N; i++) {
+            students.push_back(readStudent(i, N, f));
+        }
+        Matching m;
         m = createMatching(hospitals, students);
+        std::sort(m.pairs.begin(), m.pairs.end());
+        for (auto &[h, s] : m.pairs) {
+            of << h << " " << s << "\n";
+        }
     }
-
-    sort(m.pairs.begin(), m.pairs.end());
-
+  
     bool works = Verifier(m, hospitals, students);
-
-    for (auto &[h, s] : m.pairs) {
-        o << "Hospital " << h << " is matched with student " << s << "\n";
-    }
 
     if (works) {
         o << "This is a valid stable matching" << endl;
