@@ -4,12 +4,15 @@
 #include <set>
 #include <algorithm>
 #include <fstream>
+#include <chrono>
+
+using namespace std;
 #include <numeric>
 #include <random>
 
 struct Hospital {
-    std::vector<int> preferenceList;
-    std::unordered_map<int, int> preferences;
+    vector<int> preferenceList;
+    unordered_map<int, int> preferences;
     int id;
     explicit Hospital(int id) {
         this->id = id;
@@ -17,8 +20,8 @@ struct Hospital {
 };
 
 struct Student {
-    std::vector<int> preferenceList;
-    std::unordered_map<int, int> preferences;
+    vector<int> preferenceList;
+    unordered_map<int, int> preferences;
     int id;
     explicit Student(int id) {
         this->id = id;
@@ -26,52 +29,52 @@ struct Student {
 };
 
 struct Matching {
-    std::vector<std::pair<int, int>> pairs;
+    vector<pair<int, int>> pairs;
 };
 
-Hospital readHospital(int i, int N, std::istream& in = std::cin) {
+Hospital readHospital(int i, int N, istream& in = cin) {
     Hospital h{i};
     h.preferenceList.reserve(N);
     for (int j = 1; j <= N; j++) {
         int x;
         in >> x;
-        h.preferences[j] = x;
+        h.preferences[x] = j;
         h.preferenceList.emplace_back(x);
     }
     return h;
 }
 
-Student readStudent(int i, int N, std::istream& in = std::cin) {
+Student readStudent(int i, int N, istream& in = cin) {
     Student s{i};
     s.preferenceList.reserve(N);
     for (int j = 1; j <= N; j++) {
         int x;
         in >> x;
-        s.preferences[j] = x;
+        s.preferences[x] = j;
         s.preferenceList.emplace_back(x);
     }
     return s;
 }
 
-Matching createMatching(const std::vector<Hospital> &hospitals, const std::vector<Student> &students) {
+Matching createMatching(const vector<Hospital> &hospitals, const vector<Student> &students) {
     // do the gale shapley algorithm
     const auto N = hospitals.size();
     if (N != students.size() || N == 0) {
         return {};
     }
-    std::unordered_map<int, int> hospitalById;
-    std::unordered_map<int, int> studentById;
+    unordered_map<int, int> hospitalById;
+    unordered_map<int, int> studentById;
     // holds position numbers of hospitals which are currently unmatched
-    std::set<int> unmatchedHospitals;
+    set<int> unmatchedHospitals;
     for (int i = 0; i < N; i++) {
         unmatchedHospitals.insert(i);
         hospitalById[hospitals[i].id] = i;
         studentById[students[i].id] = i;
     }
     // holds the place of what should be the next match checked for each hospital (not by id, by place in list)
-    std::vector<int> matchedUpTo(N, 0);
+    vector<int> matchedUpTo(N, 0);
     // holds the matches that have already been made as <student id, hospital id> pairs
-    std::unordered_map<int, int> currentAssignments;
+    unordered_map<int, int> currentAssignments;
     // when N matches have been made, we are done
     while (currentAssignments.size() < N) {
         auto nextUnmatched = *unmatchedHospitals.begin();
@@ -102,12 +105,54 @@ Matching createMatching(const std::vector<Hospital> &hospitals, const std::vecto
     return result;
 }
 
+bool Verifier(const Matching& pairing, const vector<Hospital>& h, const vector<Student>& s) {
+    set<int> students;
+    set<int> hospitals;
+    const Hospital* ht;
+    vector<set<int>> sPreferences(s.size(), set<int>());
+    for (int i = 0; i < pairing.pairs.size(); i++) {
+        // Check for Duplicates
+        if (students.count(pairing.pairs[i].second) > 0 || hospitals.count(pairing.pairs[i].first) > 0) {
+            return false;
+        }
+
+        hospitals.insert(pairing.pairs[i].first);
+        students.insert(pairing.pairs[i].second);
+        // Create sets of the hospitals students prefer to their current matching
+        const Student* student = &s[pairing.pairs[i].second-1];
+        for (int j = 0; j < student->preferenceList.size(); j++) {
+            // Exit when current hopsital is reached
+            if (student->preferenceList[j] == pairing.pairs[i].first) {
+                break;
+            }
+            sPreferences[student->id-1].insert(student->preferenceList[j]);
+        }
+    }
+    
+    // Ensure that it is a stable matching
+    for (int i = 0; i < h.size(); i++) {
+        for (int j = 0; j < h[i].preferenceList.size(); j++) {
+            // Exit when student being checked is the student matched with the hospital
+            if (h[i].preferenceList[j] == pairing.pairs[i].second) {
+                break;
+            }
+            // Check if the student the hospital would prefer also prefers this hopsital to their current matching
+            if (sPreferences[h[i].preferenceList[j]-1].count(i+1) > 0) {
+                cout << "Not a valid stable matching because hospital " << i + 1 << " wants student " << h[i].preferenceList[j] << " as pick #" << j+1 << endl;
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
 struct Timer {
-    std::chrono::time_point<std::chrono::high_resolution_clock> start;
-    std::string name;
-    std::ostream& os;
-    explicit Timer(const std::string_view _name, std::ostream &o = std::cout) : name(_name), os(o) {
-        start = std::chrono::high_resolution_clock::now();
+    chrono::time_point<chrono::high_resolution_clock> start;
+    string name;
+    ostream& os;
+    explicit Timer(const string_view _name, ostream &o = cout) : name(_name), os(o) {
+        start = chrono::high_resolution_clock::now();
     }
     ~Timer() {
         auto end = std::chrono::high_resolution_clock::now();
@@ -165,5 +210,13 @@ int main(int argc, char *argv[]) {
         for (auto &[h, s] : m.pairs) {
             of << h << " " << s << "\n";
         }
+    }
+  
+    bool works = Verifier(m, hospitals, students);
+
+    if (works) {
+        o << "This is a valid stable matching" << endl;
+    } else {
+        o << "This is not a valid stable matching" << endl;
     }
 }
