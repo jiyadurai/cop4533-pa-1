@@ -7,11 +7,29 @@ To compile / build, you ideally should have CMake. Then use these commands to bu
 1. mkdir build
 2. cd build
 3. cmake ..
+4. ./pa1 <flags>
+
+Otherwise, I would suggest creating a build directory and then compiling the binary to be there.
+
+1. mkdir build
+2. g++ -std=c++20 -o build/pa1 src/main.cpp
+3. cd build
+4. ./pa1 <flags>
 
 To run the matcher, you can either run with generated input or manual input. 
 There is some generated input in the inputs directory already, or you can run the generate_cases.py to generate more. 
 Alternatively, you can pass the -m flag to pa1 to manually input a test case. First, give the size of the input, 
-followed by the preference lists for that many hospitals and then the preference lists for that many students. 
+followed by the preference lists for that many hospitals and then the preference lists for that many students. If you do
+not provide manual input, the output will be written to files in output.txt. The files named Ntime.txt have time
+information about how long it took to run with that value of N. The files named N.txt have the matchings that were
+produced by the algorithm in sorted order. If you provide manual input, the results will be output to console.
+
+To run the verifier, you can supply manual input. To do this, pass the flags -v -m after the program name. Then, supply 
+the number N, the N preference lists for hospitals, the N preference lists for students, and finally N pairs between
+hospitals and students. The program will output "VALID STABLE" if the matching is valid and stable, the program will
+output "INVALID ..." with a reason if the input is deemed invalid, and it will output "UNSTABLE ..." with an unstable
+pair that demonstrates why the matching is unstable. The verifier also runs normally, and will output its results of
+verifying our matching algorithm's results.
 
 If bad input is given, there are no guarantees about the program's execution. 
 

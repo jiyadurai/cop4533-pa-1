@@ -38,8 +38,14 @@ Hospital readHospital(int i, int N, istream& in = cin) {
     for (int j = 1; j <= N; j++) {
         int x;
         in >> x;
+        if (x < 1 || x > N) {
+            throw runtime_error("Invalid input in hospital preference list");
+        }
         h.preferences[x] = j;
         h.preferenceList.emplace_back(x);
+    }
+    if (h.preferences.size() != h.preferenceList.size() || h.preferences.size() != N) {
+        throw runtime_error("Invalid input in hospital preference list");
     }
     return h;
 }
@@ -50,8 +56,14 @@ Student readStudent(int i, int N, istream& in = cin) {
     for (int j = 1; j <= N; j++) {
         int x;
         in >> x;
+        if (x < 1 || x > N) {
+            throw runtime_error("Invalid input in student preference list");
+        }
         s.preferences[x] = j;
         s.preferenceList.emplace_back(x);
+    }
+    if (s.preferences.size() != s.preferenceList.size() || s.preferences.size() != N) {
+        throw runtime_error("Invalid input in student preference list");
     }
     return s;
 }
@@ -118,6 +130,14 @@ bool Verifier(const Matching& pairing, const vector<Hospital>& h, const vector<S
     vector<set<int>> sPreferences(s.size(), set<int>());
     for (int i = 0; i < pairing.pairs.size(); i++) {
         // Check for Duplicates
+        if (pairing.pairs[i].first <= 0 || pairing.pairs[i].first > s.size()) {
+            cout << "INVALID because the matching uses numbers too big or small" << endl;
+            return false;
+        }
+        if (pairing.pairs[i].second <= 0 || pairing.pairs[i].second > h.size()) {
+            cout << "INVALID because the matching uses numbers too big or small" << endl;
+            return false;
+        }
         if (students.count(pairing.pairs[i].second) > 0 || hospitals.count(pairing.pairs[i].first) > 0) {
             cout << "INVALID because there are duplicate students and/or hospitals." << endl;
             return false;
