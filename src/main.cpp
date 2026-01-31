@@ -111,6 +111,7 @@ bool Verifier(const Matching& pairing, const vector<Hospital>& h, const vector<S
     for (int i = 0; i < pairing.pairs.size(); i++) {
         // Check for Duplicates
         if (students.count(pairing.pairs[i].second) > 0 || hospitals.count(pairing.pairs[i].first) > 0) {
+            cout << "INVALID because there are duplicate students and/or hospitals." << endl;
             return false;
         }
 
@@ -136,9 +137,9 @@ bool Verifier(const Matching& pairing, const vector<Hospital>& h, const vector<S
             }
             // Check if the student the hospital would prefer also prefers this hopsital to their current matching
             if (sPreferences[h[i].preferenceList[j]-1].count(i+1) > 0) {
-                cout << "Not a valid stable matching because hospital " << i + 1 << " wants student " << h[i].preferenceList[j] << " as pick #" << j+1 << endl;
+                cout << "UNSTABLE matching because hospital " << i + 1 << " wants student " << h[i].preferenceList[j] << " and that student prefers this matching." << endl;
                 return false;
-            }
+            }   
         }
     }
 
