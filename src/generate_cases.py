@@ -1,6 +1,6 @@
 import random
 def main():
-    for i in range(10):
+    for i in range(12):
         n = 2**i
         preferences = [list(range(1, n+1)) for _ in range(2*n)]
         for li in preferences:
