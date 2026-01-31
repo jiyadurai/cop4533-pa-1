@@ -10,7 +10,8 @@ To compile / build, you ideally should have CMake. Then use these commands to bu
 1. mkdir build
 2. cd build
 3. cmake ..
-4. ./pa1 \<flags\>
+4. cmake --build .
+5. ./pa1 \<flags\>
 
 Otherwise, I would suggest creating a build directory and then compiling the binary to be there.
 
@@ -33,6 +34,9 @@ hospitals and students. The program will output "VALID STABLE" if the matching i
 output "INVALID ..." with a reason if the input is deemed invalid, and it will output "UNSTABLE ..." with an unstable
 pair that demonstrates why the matching is unstable. The verifier also runs normally, and will output its results of
 verifying our matching algorithm's results.
+
+To run the python chart generator, you will need to have matplotlib or make a venv with it. You should run the python
+scripts from the base directory, e.g. python3 src/generate_charts.py.
 
 If bad input is given, there are no guarantees about the program's execution. If an invalid preference list for a 
 hospital or student is given, it is likely to throw an exception and crash. When verifying, the program should be able
